@@ -152,7 +152,7 @@ if (g('islem') =='urunEkle'){
         $rn .= rand(1000, 9999);
         $resimyol= substr($uploads_dir,6)."/".$rn.$name;
         $yukle= @move_uploaded_file($tmp_name, "$uploads_dir/$rn$name");
-
+//deneme commit
     }
 
     $urun_kategori = p('urun_kategori');
