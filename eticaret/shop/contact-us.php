@@ -239,7 +239,7 @@
 											<a href="demo-shop-6-dashboard.html">Dashboard</a>
 										</li>
 										<li>
-											<a href="myaccount.php">My Account</a>
+											<a href="hesabim.php">My Account</a>
 										</li>
 									</ul>
 								</li>
@@ -369,7 +369,7 @@
 								</li>
 								<li>
 									<i class="fa fa-caret-right text-color-primary"></i>
-									<a href="myaccount.php">My account</a>
+									<a href="hesabim.php">My account</a>
 								</li>
 								<li>
 									<i class="fa fa-caret-right text-color-primary"></i>

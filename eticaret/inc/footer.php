@@ -96,7 +96,7 @@
     </div>
     <div class="footer-copyright">
         <div class="container">
-            <a href="index.html" class="logo">
+            <a href="index.php" class="logo">
                 <img alt="Porto Website Template" class="img-responsive" src="../img/demos/shop/footerlogo.png">
             </a>
             <ul class="social-icons">

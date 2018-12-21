@@ -1,18 +1,18 @@
-<?php require_once '../inc/header.php'; ?>
+<? require_once '../inc/header.php'; ?>
 
 			<div role="main" class="main">
 <!--ÜST BANNER-->
-                <?php require_once '../moduller/ustbanner.php'?>
+                <? require_once '../moduller/ustbanner.php'?>
 <!--ÜST BANNER-->
 
 			<div class="container">
 				<div class="row row-sm mb-lg">
 
                     <!--SLIDER-->
-                    <?php require_once '../moduller/slider.php'?>
+                    <? require_once '../moduller/slider.php'?>
                     <!--SLIDER-->
                     <!--KATEGORILER-->
-                    <?php require_once '../moduller/kategoriler.php'?>
+                    <? require_once '../moduller/kategoriler.php'?>
                     <!--KATEGORILER-->
 
 				</div>
@@ -530,7 +530,7 @@
                     <!--ANASAYFA İÇ BÖLGE-->
 
                     <!--ANASAYFA ALT SIDEBAR-->
-                    <?php include '../moduller/alt-sidebar.php'?>
+                    <? include '../moduller/alt-sidebar.php'?>
                     <!--ANASAYFA ALT SIDEBAR-->
 
 				</div>
@@ -542,4 +542,4 @@
 
 			</div>
 
-<?php include '../inc/footer.php'; ?>
+<? include '../inc/footer.php'; ?>
