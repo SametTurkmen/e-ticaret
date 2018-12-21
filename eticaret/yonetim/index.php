@@ -1,7 +1,7 @@
 <?php
-include 'ayarlar/baglanti.php';
-include 'ayarlar/function.php';
-include 'inc/header.php';
+require_once 'ayarlar/baglanti.php';
+require_once 'ayarlar/function.php';
+require_once 'inc/header.php';
 ?>
 
     <!-- start: page -->
@@ -125,15 +125,29 @@ include 'inc/header.php';
                             <div class="widget-summary">
                                 <div class="widget-summary-col widget-summary-col-icon">
                                     <div class="summary-icon bg-primary">
-                                        <i class="fa fa-life-ring"></i>
+                                        <i class="fa fa-product-hunt"></i>
                                     </div>
                                 </div>
                                 <div class="widget-summary-col">
                                     <div class="summary">
-                                        <h4 class="title">Support Questions</h4>
+                                        <h4 class="title">Ürün Sayısı</h4>
                                         <div class="info">
-                                            <strong class="amount">1281</strong>
-                                            <span class="text-primary">(14 unread)</span>
+                                            <strong class="amount"><?
+                                                $urun_say= $db->prepare("SELECT COUNT(*) FROM urunler");
+                                                $urun_say ->execute();
+                                                $urunsayisi= $urun_say->fetchColumn();
+                                                echo $urunsayisi;
+                                            ?>
+                                            </strong>
+                                            <span class="text-primary">
+                                                <?
+                                                $tarih= date("d.m.Y");
+                                                $urun_say= $db->prepare("SELECT COUNT(*) FROM urunler WHERE urun_eklemetarih='$tarih' ");
+                                                $urun_say ->execute();
+                                                $urunsayisi= $urun_say->fetchColumn();
+                                                echo "( Günün Ürünleri : ".$urunsayisi." )";
+                                                ?>
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="summary-footer">
@@ -150,14 +164,21 @@ include 'inc/header.php';
                             <div class="widget-summary">
                                 <div class="widget-summary-col widget-summary-col-icon">
                                     <div class="summary-icon bg-secondary">
-                                        <i class="fa fa-usd"></i>
+                                        <i class="fa fa-turkish-lira"></i>
                                     </div>
                                 </div>
                                 <div class="widget-summary-col">
                                     <div class="summary">
-                                        <h4 class="title">Total Profit</h4>
+                                        <h4 class="title">Ürünlerin Toplam Tutarları <br>(Günlük)</h4>
                                         <div class="info">
-                                            <strong class="amount">$ 14,890.30</strong>
+                                            <strong class="amount"><?
+                                                $tarih= date("Y-m-d");
+                                                $hesapla= $db->prepare("SELECT SUM(urun_fiyat) FROM urunler WHERE urun_eklemetarih LIKE '$tarih%'"); /* sorgu kısmına "where urun_eklemetarih = $tarih"  ile sorgulama yap! */
+                                                $hesapla->execute();
+                                                $tutar = $hesapla->fetchColumn();
+                                                echo parayaz($tutar);
+                                                ?>
+                                            </strong>
                                         </div>
                                     </div>
                                     <div class="summary-footer">
@@ -179,7 +200,7 @@ include 'inc/header.php';
                                 </div>
                                 <div class="widget-summary-col">
                                     <div class="summary">
-                                        <h4 class="title">Today's Orders</h4>
+                                        <h4 class="title">Today's Orders (Günlük sepet sayısı ekle)</h4>
                                         <div class="info">
                                             <strong class="amount">38</strong>
                                         </div>
@@ -203,7 +224,7 @@ include 'inc/header.php';
                                 </div>
                                 <div class="widget-summary-col">
                                     <div class="summary">
-                                        <h4 class="title">Today's Visitors</h4>
+                                        <h4 class="title">Today's Visitors (günlük ziyaretçi sayısı ekle)</h4>
                                         <div class="info">
                                             <strong class="amount">3765</strong>
                                         </div>

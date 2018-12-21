@@ -37,6 +37,24 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="nav-parent nav-active">
+                        <a>
+                            <i class="fa fa-product-hunt" aria-hidden="true"></i>
+                            <span>Ürün İşlemleri</span>
+                        </a>
+                        <ul class="nav nav-children">
+                            <li>
+                                <a href="urunler.php">
+                                    Ürünler
+                                </a>
+                            </li>
+                            <li>
+                                <a href="urun-ekle.php">
+                                    Ürün Ekle
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
 
                 </ul>
             </nav>

@@ -43,6 +43,8 @@
 <script src="assets/vendor/jqvmap/maps/continents/jquery.vmap.europe.js"></script>
 <script src="assets/vendor/jqvmap/maps/continents/jquery.vmap.north-america.js"></script>
 <script src="assets/vendor/jqvmap/maps/continents/jquery.vmap.south-america.js"></script>
+<script src="assets/vendor/jquery-maskedinput/jquery.maskedinput.js"></script>
+<script src="assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
 
 <!-- DATA TABLES -->
 <script src="assets/vendor/select2/js/select2.js"></script>

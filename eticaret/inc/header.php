@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Demo Shop 6 | Porto - Responsive HTML5 Template 5.7.1</title>
+    <title>E-Ticaret Sitesi </title>
 
     <meta name="keywords" content="HTML5 Template" />
     <meta name="description" content="Porto - Responsive HTML5 Template">
@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="../vendor/owl.carousel/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="../vendor/owl.carousel/assets/owl.theme.default.min.css">
     <link rel="stylesheet" href="../vendor/magnific-popup/magnific-popup.min.css">
+
 
     <!-- Theme CSS -->
     <link rel="stylesheet" href="../css/theme.css">
@@ -60,71 +61,13 @@
 <div class="body">
     <header id="header" data-plugin-options="{'stickyEnabled': false, 'stickyEnableOnBoxed': false, 'stickyEnableOnMobile': false, 'stickyStartAt': 147, 'stickySetTop': '-147px', 'stickyChangeLogo': false}">
         <div class="header-body">
-            <div class="header-top">
-                <div class="container">
-                    <div class="dropdowns-container">
-                        <div class="header-dropdown cur-dropdown">
-                            <a href="#">USD <i class="fa fa-caret-down"></i></a>
-
-                            <ul class="header-dropdownmenu">
-                                <li><a href="#">EUR</a></li>
-                                <li><a href="#">USD</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="header-dropdown lang-dropdown">
-                            <a href="#"><img src="../img/demos/shop/en.png" alt="English">English <i class="fa fa-caret-down"></i></a>
-
-                            <ul class="header-dropdownmenu">
-                                <li><a href="#"><img src="../img/demos/shop/en.png" alt="English">English</a></li>
-                                <li><a href="#"><img src="../img/demos/shop/fr.png" alt="French">French</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="compare-dropdown">
-                            <a href="#"><i class="fa fa-retweet"></i> Compare (2)</a>
-
-                            <div class="compare-dropdownmenu">
-                                <div class="dropdownmenu-wrapper">
-                                    <ul class="compare-products">
-                                        <li class="product">
-                                            <a href="#" class="btn-remove" title="Remove Product"><i class="fa fa-times"></i></a>
-                                            <h4 class="product-name"><a href="demo-shop-6-product-details.html">White top</a></h4>
-                                        </li>
-                                        <li class="product">
-                                            <a href="#" class="btn-remove" title="Remove Product"><i class="fa fa-times"></i></a>
-                                            <h4 class="product-name"><a href="demo-shop-6-product-details.html">Blue Women Shirt</a></h4>
-                                        </li>
-                                    </ul>
-
-                                    <div class="compare-actions">
-                                        <a href="#" class="action-link">Clear All</a>
-                                        <a href="#" class="btn btn-primary">Compare</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="top-menu-area">
-                        <a href="#">Links <i class="fa fa-caret-down"></i></a>
-                        <ul class="top-menu">
-                            <li><a href="demo-shop-6-myaccount.html">My Account</a></li>
-                            <li><a href="#">Daily Deal</a></li>
-                            <li><a href="#">My Wishlist</a></li>
-                            <li><a href="demo-shop-6-blog.html">Blog</a></li>
-                            <li><a href="demo-shop-6-login.html">Log in</a></li>
-                        </ul>
-                    </div>
-                    <p class="welcome-msg">DEFAULT WELCOME MSG!</p>
-                </div>
-            </div>
+            <? require_once '../moduller/header-top.php';?>
             <div class="header-container container">
                 <div class="header-row">
                     <div class="header-column">
                         <div class="header-logo">
                             <a href="index.php">
-                                <img alt="Porto" width="111" height="51" src="../img/demos/shop/logo-shop-white.png">
+                                <img alt="Porto"  src="../img/demos/shop/logo.png">
                             </a>
                         </div>
                     </div>
@@ -133,9 +76,9 @@
                             <div class="cart-area">
                                 <div class="custom-block">
                                     <i class="fa fa-phone"></i>
-                                    <span>(+404) 158 14 25 78</span>
+                                    <span>545 630 10 42</span>
                                     <span class="split"></span>
-                                    <a href="#">CONTACT US</a>
+                                    <a href="#">BİZE ULAŞIN</a>
                                 </div>
 
                                 <div class="cart-dropdown">
@@ -240,10 +183,10 @@
         </div>
     </header>
 
-    <div class="mobile-nav">
+  <!--  <div class="mobile-nav">
         <div class="mobile-nav-wrapper">
             <ul class="mobile-side-menu">
-                <li><a href="demo-shop-5.html">Home</a></li>
+                <li><a href="../shop/index.php">Home</a></li>
                 <li>
                     <span class="mmenu-toggle"></span>
                     <a href="#">Fashion <span class="tip tip-new">New</span></a>
@@ -399,7 +342,7 @@
                         </li>
                         <li>
                             <span class="mmenu-toggle"></span>
-                            <a href="#">Loign &amp; Register</a>
+                            <a href="#">Login &amp; Register</a>
                             <ul>
                                 <li>
                                     <a href="demo-shop-5-login.html">Login</a>
@@ -442,6 +385,6 @@
                 </li>
             </ul>
         </div>
-    </div>
+    </div> -->
 
     <div id="mobile-menu-overlay"></div>

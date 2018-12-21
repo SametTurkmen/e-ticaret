@@ -4,22 +4,22 @@
             <div class="col-md-4">
                 <i class="fa fa-truck bar-icon"></i>
                 <div class="bar-textarea">
-                    <h3>FREE SHIPPING &amp; RETURN</h3>
-                    <p>Free shipping on all orders over $99.</p>
+                    <h3>ÜCRETSİZ KARGO VE İADE</h3>
+                    <p>Tüm siparişlerde ücretsiz kargo</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <i class="fa fa-dollar bar-icon"></i>
                 <div class="bar-textarea">
-                    <h3>MONEY BACK GUARANTEE</h3>
-                    <p>100% money back guarantee.</p>
+                    <h3>PARA İADE GARANTİSİ</h3>
+                    <p>% 100 para iade garantisi.</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <i class="fa fa-support bar-icon"></i>
                 <div class="bar-textarea">
-                    <h3>ONLINE SUPPORT 24/7</h3>
-                    <p>Lorem ipsum dolor sit amet.</p>
+                    <h3>ONLİNE DESTEK</h3>
+                    <p>7/24 online destek.</p>
                 </div>
             </div>
         </div>

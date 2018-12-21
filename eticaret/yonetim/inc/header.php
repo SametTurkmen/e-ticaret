@@ -5,7 +5,7 @@
     <!-- Basic -->
     <meta charset="UTF-8">
 
-    <title>Sidebar Size SM Layout | Porto Admin - Responsive HTML5 Template 1.5.5</title>
+    <title>E-Ticaret Sitesi-Admin</title>
     <meta name="keywords" content="HTML5 Admin Template" />
     <meta name="description" content="Porto Admin - Responsive HTML5 Template">
     <meta name="author" content="okler.net">
@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="assets/vendor/select2/css/select2.css" />
     <link rel="stylesheet" href="assets/vendor/select2-bootstrap-theme/select2-bootstrap.min.css" />
     <link rel="stylesheet" href="assets/vendor/jquery-datatables-bs3/assets/css/datatables.css" />
+    <link rel="stylesheet" href="assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.css" />
 
     <!-- Theme CSS -->
     <link rel="stylesheet" href="assets/stylesheets/theme.css" />

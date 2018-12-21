@@ -1,18 +1,18 @@
-<?php include '../inc/header.php>'; ?>
+<?php require_once '../inc/header.php'; ?>
 
 			<div role="main" class="main">
 <!--ÜST BANNER-->
-                <?php include '../moduller/ustbanner.php'?>
+                <?php require_once '../moduller/ustbanner.php'?>
 <!--ÜST BANNER-->
 
 			<div class="container">
 				<div class="row row-sm mb-lg">
 
                     <!--SLIDER-->
-                    <?php include '../moduller/slider.php'?>
+                    <?php require_once '../moduller/slider.php'?>
                     <!--SLIDER-->
                     <!--KATEGORILER-->
-                    <?php include '../moduller/kategoriler.php'?>
+                    <?php require_once '../moduller/kategoriler.php'?>
                     <!--KATEGORILER-->
 
 				</div>
@@ -43,7 +43,7 @@
 						</div>
 
 						<h2 class="slider-title">
-		                    <span class="inline-title">FEATURED FASHION DRESS</span>
+		                    <span class="inline-title">POPÜLER ÜRÜNLER</span>
 		                    <span class="line"></span>
 		                </h2>
 
@@ -542,4 +542,4 @@
 
 			</div>
 
-<?php include '../inc/footer.php>'; ?>
+<?php include '../inc/footer.php'; ?>

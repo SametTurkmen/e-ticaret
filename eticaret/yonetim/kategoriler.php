@@ -15,8 +15,7 @@ include 'inc/header.php';
                         <i class="fa fa-home"></i>
                     </a>
                 </li>
-                <li><span>Layouts</span></li>
-                <li><span>Sidebar Size SM</span></li>
+                <li><span>Kategoriler</span></li>
             </ol>
 
             <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
@@ -33,7 +32,7 @@ include 'inc/header.php';
                         </a>
                     </div>
 
-                    <h2 class="panel-title">Basic with Table Tools</h2>
+                    <h2 class="panel-title">Tüm Kategoriler</h2>
                 </header>
                 <div class="panel-body">
                     <? include 'inc/alert.php'; ?>

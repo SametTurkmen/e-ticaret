@@ -26,7 +26,6 @@ include 'inc/header.php';
                     </a>
                 </li>
                 <li><span>Kategori Düzenle</span></li>
-                <li><span>Sidebar Size SM</span></li>
             </ol>
 
             <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
@@ -81,7 +80,7 @@ include 'inc/header.php';
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="inputDefault">Anahtar Kelimeler</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="kategori_keyw" value="<? echo $kategori['kategori_keyw']; ?>">
+                                <input id="tags-input" data-role="tagsinput" data-tag-class="label label-primary" type="text" class="form-control" name="kategori_keyw" value="<? echo $kategori['kategori_keyw']; ?>">
                             </div>
                         </div>
                         <div class="form-group">

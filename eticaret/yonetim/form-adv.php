@@ -1,6 +1,7 @@
 <?php
-include 'ayarlar/baglanti.php';
-include 'inc/header.php';
+require_once 'ayarlar/baglanti.php';
+// require_once 'ayarlar/function.php';
+require_once 'inc/header.php';
 ?>
 					<!-- start: page -->
 						<section class="panel">

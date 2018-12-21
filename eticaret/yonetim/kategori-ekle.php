@@ -18,7 +18,6 @@ include 'inc/header.php';
                     </a>
                 </li>
                 <li><span>Kategori Ekle</span></li>
-                <li><span>Sidebar Size SM</span></li>
             </ol>
 
             <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
@@ -37,19 +36,19 @@ include 'inc/header.php';
                 </header>
                 <div class="panel-body">
                     <div id="kategoriEkleAlert"></div>
-                    <form id="kategoriEkleForm" class="form-horizontal form-bordered" >
+                    <form id="kategoriEkleForm" class="form-horizontal form-bordered">
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="inputDefault">Kategori Modeli</label>
                             <div class="col-md-6">
                                 <select class="form-control" name="kategori_ust">
                                     <option value="00">Ana Kategori</option>
                                     <?php
-                                    $veri=$db->prepare("SELECT * FROM kategoriler WHERE kategori_durum='1' ");
+                                    $veri = $db->prepare("SELECT * FROM kategoriler WHERE kategori_durum='1' ");
                                     $veri->execute(array());
-                                    $v=$veri->fetchAll(PDO::FETCH_ASSOC);
-                                    foreach ($v as $kat){
+                                    $v = $veri->fetchAll(PDO::FETCH_ASSOC);
+                                    foreach ($v as $kat) {
                                         ?>
-                                        <option value="<?php echo $kat['kategori_id']; ?>"><?php echo $kat['kategori_title']?> </option>
+                                        <option value="<?php echo $kat['kategori_id']; ?>"><?php echo $kat['kategori_title'] ?> </option>
                                         <?php
                                     }
                                     ?>
@@ -71,7 +70,8 @@ include 'inc/header.php';
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="inputDefault">Anahtar Kelimeler</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="kategori_keyw">
+                                <input id="tags-input" data-role="tagsinput" data-tag-class="label label-primary"
+                                       type="text" class="form-control" name="kategori_keyw">
                             </div>
                         </div>
                         <div class="form-group">

@@ -37,6 +37,13 @@ $("#yGiris").on("click",function () {
     });
 });
 
+$(document).keypress(function(e){
+    if (e.which == 13){
+        $("#yGiris").click();
+    }
+});
+
+
 function ParaFormat(Num) {
     Num += '';
     Num = Num.replace('.', ''); Num = Num.replace('.', ''); Num = Num.replace('.', '');
@@ -52,7 +59,6 @@ function ParaFormat(Num) {
 
 $("#urunEkleBtn").on("click",function () {
     var data = new FormData($('#urunEkleForm')[0]);
-   // console.log(datakategori);
     $.ajax({
         url: "ayarlar/islem.php?islem=urunEkle",
         type :"POST",
@@ -63,6 +69,22 @@ $("#urunEkleBtn").on("click",function () {
         processData : false,
         success : function (cevap) {
             $("#urunEkleAlert").html(cevap).hide().fadeIn(700);
+        }
+    });
+});
+
+$("#urunGuncelleBtn").on("click",function () {
+    var data = new FormData($('#urunGuncelleForm')[0]);
+    $.ajax({
+        url: "ayarlar/islem.php?islem=urunGuncelle",
+        type :"POST",
+        data :data,
+        async : false,
+        cache : false,
+        contentType : false,
+        processData : false,
+        success : function (cevap) {
+            $("#urunGuncelleAlert").html(cevap).hide().fadeIn(700);
         }
     });
 });

@@ -1,6 +1,6 @@
 <?php
-include 'baglanti.php';
-include 'function.php';
+require_once 'baglanti.php';
+require_once 'function.php';
 
 //KATEGORİ iŞLEMLERİ
 if (g('islem')=='kategoriEkle'){
@@ -30,13 +30,13 @@ if (g('islem')=='kategoriEkle'){
 
         //echo $key;
         $ekle= $db->prepare("INSERT INTO kategoriler SET kategori_key=?, kategori_title=?, kategori_desc=?, kategori_keyw=?, kategori_ust=?, kategori_durum=? ");
-        $ekleme=$ekle->execute(array($key, $kategori_title, $kategori_desc, $kategori_keyw, $kategori_ust, $kategori_durum));
+        $ekleme = $ekle->execute(array($key, $kategori_title, $kategori_desc, $kategori_keyw, $kategori_ust, $kategori_durum));
 
         // echo $kategori_desc."---".$ekleme."---".$kategori_title;
         // var_dump($ekle);
 
         if ($ekleme){
-            echo "<div class='alert alert-success'>Kategori ekleme işleminiz başarıyla gerçekleşti.</div><meta http-equiv='refresh' content='2; url=kategoriler.php?ekle=ok'>";
+            echo "<div class='alert alert-success'>Kategori ekleme işleminiz başarıyla gerçekleşti.</div><meta http-equiv='refresh' content='1; url=kategoriler.php?ekle=ok'>";
         }else{
             echo "<div class='alert alert-danger'>Ekleme işlemi sırasında hata oluştu.</div>";
             print_r(error_get_last());
@@ -79,7 +79,7 @@ if(g('islem') == 'kategoriGuncelle'){
         $guncelleme = $guncelle -> execute(array($kategori_title, $kategori_desc, $kategori_keyw, $kategori_ust, $kategori_durum));
 
         if ($guncelleme){
-            echo "<div class='alert alert-success'>Güncelleme işlemi başarılı, lütfen bekleyiniz.</div><meta http-equiv='refresh' content='2; url=kategoriler.php?guncelle=ok'>";
+            echo "<div class='alert alert-success'>Güncelleme işlemi başarılı, lütfen bekleyiniz.</div><meta http-equiv='refresh' content='1; url=kategoriler.php?guncelle=ok'>";
         }else{
             echo "<div class='alert alert-danger'>Güncelleme işlemi sırasında hata oluştu.</div>";
         }
@@ -136,32 +136,145 @@ if (g('islem')=='cikis'){
 }
 
 // ÜRÜN iŞLEMLERİ
-
 if (g('islem') =='urunEkle'){
-    // print_r($_FILES);
-    if ($_FILES['urun_resim']['size'] > 1024*1024){
-        echo "Resim boyutu çok büyük";
-    }else{
-        $uploads_dir='../../resimler';
-        @$tmp_name = $_FILES['urun_resim']['tmp_name'];
-        @$name = $_FILES['urun_resim']['name'];
-        $rn = rand(1000, 9999);
-        $rn .= rand(1000, 9999);
-        $rn .= rand(1000, 9999);
-        $rn .= rand(1000, 9999);
-        $rn .= rand(1000, 9999);
-        $resimyol= substr($uploads_dir,6)."/".$rn.$name;
-        $yukle= @move_uploaded_file($tmp_name, "$uploads_dir/$rn$name");
-//deneme commit
-    }
 
     $urun_kategori = p('urun_kategori');
     $urun_title = p('urun_title');
     $urun_desc = p('urun_desc');
-    $urun_meta_title = p('urun_meta_title');
     $urun_meta_desc = p('urun_meta_desc');
+    $urun_meta_title = p('urun_meta_title');
     $urun_meta_keyw = p('urun_meta_keyw');
     $urun_fiyat = p('urun_fiyat');
     $urun_sira = p('urun_sira');
+
+    if (empty($urun_kategori)){
+        echo "<div class='alert alert-warning'>Lütfen ürün kategorisini giriniz</div>";
+    }elseif (empty($urun_title)){
+        echo "<div class='alert alert-warning'>Lütfen ürün başlığını giriniz</div>";
+    }elseif (empty($urun_desc)){
+        echo "<div class='alert alert-warning'>Lütfen ürün açıklamasını giriniz</div>";
+    }elseif (empty($urun_meta_title)){
+        echo "<div class='alert alert-warning'>Lütfen ürün meta başlığını giriniz</div>";
+    }elseif (empty($urun_meta_desc)){
+        echo "<div class='alert alert-warning'>Lütfen ürün meta açıklamasını giriniz</div>";
+    }elseif (empty($urun_meta_keyw)){
+        echo "<div class='alert alert-warning'>Lütfen ürün anahtar meta kelimeleri giriniz</div>";
+    }elseif (empty($urun_fiyat)){
+        echo "<div class='alert alert-warning'>Lütfen ürün fiyatını giriniz</div>";
+    }elseif (empty($urun_sira)){
+        echo "<div class='alert alert-warning'>Lütfen ürün sırasını giriniz</div>";
+    }else{
+        // print_r($_FILES);
+        @$name = $_FILES['urun_resim']['name'];
+        $yol='../../resimler';
+        $rn= resimadi();
+        $uzanti=uzanti($name);
+        $vtyol ="resimler/$rn.$uzanti";
+
+        if ($_FILES['urun_resim']['size'] > 1024*1024*2){
+            echo "Maximum resim boyutu 2 MB olmalı";
+        }else{
+            $resimyukleme=resimyukle('urun_resim', $rn,$yol);
+            if ($resimyukleme){
+
+                $ekle=$db->prepare("INSERT INTO urunler SET urun_resim=?, urun_title=?, urun_desc=?, urun_meta_desc=?, urun_meta_title=?, urun_meta_keyw=?, urun_fiyat=?, urun_kategori=?, urun_sira=? ");
+                $ekleme=$ekle->execute(array($vtyol,$urun_title, $urun_desc, $urun_meta_desc,$urun_meta_title,$urun_meta_keyw,noktasil($urun_fiyat),$urun_kategori,$urun_sira));
+                if ($ekleme){
+                    echo "<div class='alert alert-success'>Ürün ekleme işlemi başarıyla gerçekleşti</div><meta http-equiv='refresh' content='1; url=urunler.php?ekle=ok'>";
+                }else{
+                    echo "<div class='alert alert-danger'>Ürün ekleme işlemi sırasında hata meydana geldi</div>";
+                }
+
+            }else{
+                echo "<div class='alert alert-danger'>Ürün resmi yüklenirken bir hata oluştu.</div>";
+            }
+        }
+    }
+
 }
 
+if (g('urunSil')=="ok")
+{
+    //  print_r(g('kategori_id')); exit();
+
+    $u=urungetir(g('urun_id'));
+    foreach ($u as $urun);
+    $eskiresim='../../'.$urun['urun_resim'];
+
+    $sil= $db -> prepare("DELETE FROM urunler WHERE urun_id=?");
+    $silme= $sil -> execute(array(g('urun_id')));
+    if ($silme){
+        unlink($eskiresim);
+        git("../urunler.php?silme=ok");
+    }else{
+        git("../urunler.php?silme=no");
+    }
+}
+
+if (g('islem') == 'urunGuncelle'){
+    /*echo "<pre>";
+    print_r($_POST);
+    echo "</pre>"; */
+
+   $urun_id =p('urun_id');
+   $urun_kategori =p('urun_kategori');
+   $urun_title =p('urun_title');
+   $urun_desc =p('urun_desc');
+   $urun_meta_title =p('urun_meta_title');
+   $urun_meta_desc =p('urun_meta_desc');
+   $urun_meta_keyw =p('urun_meta_keyw');
+   $urun_fiyat =noktasil(p('urun_fiyat'));
+   $urun_sira =p('urun_sira');
+
+    $urunEskiResim = urunresimgetir($urun_id);
+
+    if (empty($urun_kategori)){
+        echo "<div class='alert alert-warning'>Lütfen ürün kategorisini giriniz</div>";
+    }elseif (empty($urun_title)){
+        echo "<div class='alert alert-warning'>Lütfen ürün başlığını giriniz</div>";
+    }elseif (empty($urun_desc)){
+        echo "<div class='alert alert-warning'>Lütfen ürün açıklamasını giriniz</div>";
+    }elseif (empty($urun_meta_title)){
+        echo "<div class='alert alert-warning'>Lütfen ürün meta başlığını giriniz</div>";
+    }elseif (empty($urun_meta_desc)){
+        echo "<div class='alert alert-warning'>Lütfen ürün meta açıklamasını giriniz</div>";
+    }elseif (empty($urun_meta_keyw)){
+        echo "<div class='alert alert-warning'>Lütfen ürün anahtar meta kelimeleri giriniz</div>";
+    }elseif (empty($urun_fiyat)){
+        echo "<div class='alert alert-warning'>Lütfen ürün fiyatını giriniz</div>";
+    }elseif (empty($urun_sira)){
+        echo "<div class='alert alert-warning'>Lütfen ürün sırasını giriniz</div>";
+    }else{
+        if ($_FILES['urun_resim']['size'] <= 0){
+            $guncelle=$db->prepare("UPDATE urunler SET urun_resim=?, urun_title=?, urun_desc=?, urun_meta_desc=?, urun_meta_title=?, urun_meta_keyw=?, urun_fiyat=?, urun_kategori=?, urun_sira=? WHERE urun_id='$urun_id'");
+            $guncelleme=$guncelle->execute(array($urunEskiResim,$urun_title, $urun_desc, $urun_meta_desc,$urun_meta_title,$urun_meta_keyw,$urun_fiyat,$urun_kategori,$urun_sira));
+
+            if ($guncelleme){
+                echo "<div class='alert alert-success'>Ürün güncelleme işlemi başarıyla gerçekleşti.</div><meta http-equiv='refresh' content='1; url=urunler.php?guncelle=ok'>";
+            }else{
+                echo "<div class='alert alert-danger'>Ürün güncelleme sırasında bir hata meydana geldi.</div>";
+            }
+
+        }elseif ($_FILES['urun_resim']['size'] > 1024*1024*2){
+            echo "Maximum resim boyutu 2 MB olmalı.";
+        }else {
+            @$name = $_FILES['urun_resim']['name'];
+            $yol='../../resimler';
+            $rn= resimadi();
+            $uzanti=uzanti($name);
+            $vtyol ="resimler/$rn.$uzanti";
+            $resimyukleme= resimyukle('urun_resim', $rn,$yol);
+            if ($resimyukleme){
+                $guncelle=$db->prepare("UPDATE urunler SET urun_resim=?, urun_title=?, urun_desc=?, urun_meta_desc=?, urun_meta_title=?, urun_meta_keyw=?, urun_fiyat=?, urun_kategori=?, urun_sira=? WHERE urun_id='$urun_id'");
+                $guncelleme=$guncelle->execute(array($vtyol,$urun_title, $urun_desc, $urun_meta_desc,$urun_meta_title,$urun_meta_keyw,$urun_fiyat,$urun_kategori,$urun_sira));
+
+                if ($guncelleme){
+                    echo "<div class='alert alert-success'>Ürün güncelleme işlemi başarıyla gerçekleşti.</div><meta http-equiv='refresh' content='1; url=urunler.php?guncelle=ok'>";
+                    unlink("../../$urunEskiResim");
+                }else{
+                    echo "<div class='alert alert-danger'>Ürün güncelleme sırasında bir hata meydana geldi.</div>";
+                }
+            }
+        }
+    }
+}

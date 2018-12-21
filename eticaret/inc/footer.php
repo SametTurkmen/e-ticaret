@@ -3,89 +3,91 @@
     <div class="container">
         <div class="row">
             <div class="footer-ribbon">
-                <span>Get in Touch</span>
+                <span>İletişime Geçin</span>
             </div>
 
             <div class="col-md-3">
-                <h4>My Account</h4>
+                <h4>Hesabım</h4>
                 <ul class="links">
                     <li>
                         <i class="fa fa-caret-right text-color-primary"></i>
-                        <a href="demo-shop-6-about-us.html">About Us</a>
+                        <a href="about-us.php">Hakkımızda</a>
                     </li>
                     <li>
                         <i class="fa fa-caret-right text-color-primary"></i>
-                        <a href="demo-shop-6-contact-us.html">Contact Us</a>
+                        <a href="contact-us.php">Bizimle iletişime geçin</a>
                     </li>
                     <li>
                         <i class="fa fa-caret-right text-color-primary"></i>
-                        <a href="demo-shop-6-myaccount.html">My account</a>
+                        <a href="myaccount.php">Hesabım</a>
                     </li>
                     <li>
                         <i class="fa fa-caret-right text-color-primary"></i>
-                        <a href="#">Orders history</a>
+                        <a href="#">Siparişler geçmişi</a>
                     </li>
                     <li>
                         <i class="fa fa-caret-right text-color-primary"></i>
-                        <a href="#">Advanced search</a>
+                        <a href="#">Gelişmiş Arama</a>
                     </li>
                 </ul>
             </div>
             <div class="col-md-3">
                 <div class="contact-details">
-                    <h4>Contact Information</h4>
+                    <h4>İletişim bilgileri</h4>
                     <ul class="contact">
-                        <li><p><i class="fa fa-map-marker"></i> <strong>Address:</strong><br> 1234 Street Name, City, US</p></li>
-                        <li><p><i class="fa fa-phone"></i> <strong>Phone:</strong><br> (123) 456-7890</p></li>
-                        <li><p><i class="fa fa-envelope-o"></i> <strong>Email:</strong><br> <a href="mailto:mail@example.com">mail@example.com</a></p></li>
-                        <li><p><i class="fa fa-clock-o"></i> <strong>Working Days/Hours:</strong><br> Mon - Sun / 9:00AM - 8:00PM</p></li>
+                        <li><p><i class="fa fa-map-marker"></i> <strong>Adres:</strong><br>
+                                Selçuk Üniversitesi Rektörlüğü, Alaeddin Keykubat Yerleşkesi, Akademi Mah. Yeni İstanbul Cad. No:369 Posta Kodu:42130
+                                Selçuklu-Konya / TÜRKİYE </p></li>
+                        <li><p><i class="fa fa-phone"></i> <strong>Telefon:</strong><br> 0545 630 1042</p></li>
+                        <li><p><i class="fa fa-envelope-o"></i> <strong>E-mail:</strong><br> <a href="mailto:samettrkmn.pc42@gmail.com">samettrkmn.pc42@gmail.com</a></p></li>
+                        <li><p><i class="fa fa-clock-o"></i> <strong>Çalışma Günleri / Saatleri:</strong><br> Pazartesi-Cuma / 09:00-17:00</p></li>
                     </ul>
                 </div>
             </div>
             <div class="col-md-3">
-                <h4>Main Features</h4>
+                <h4>Ana Özellikler</h4>
                 <ul class="features">
                     <li>
                         <i class="fa fa-check text-color-primary"></i>
-                        <a href="#">Super Fast Template</a>
+                        <a>Hızlı Alışveriş</a>
                     </li>
                     <li>
                         <i class="fa fa-check text-color-primary"></i>
-                        <a href="#">1st Seller Template</a>
+                        <a>Kolay Alışveriş</a>
                     </li>
                     <li>
                         <i class="fa fa-check text-color-primary"></i>
-                        <a href="#">19 Unique Shop Layouts</a>
+                        <a>Kapıda Ödeme İmkanı</a>
                     </li>
                     <li>
                         <i class="fa fa-check text-color-primary"></i>
-                        <a href="#">Powerful Template Features</a>
+                        <a>Çok Sayıda Şube</a>
                     </li>
                     <li>
                         <i class="fa fa-check text-color-primary"></i>
-                        <a href="#">Mobile &amp; Retina Optimized</a>
+                        <a>Ücretsiz İade Garantisi</a>
                     </li>
                 </ul>
             </div>
             <div class="col-md-3">
                 <div class="newsletter">
-                    <h4>Be the First to Know</h4>
-                    <p class="newsletter-info">Get all the latest information on Events,<br> Sales and Offers. Sign up for newsletter today.</p>
+                    <h4>Gelişmelerden Haberdar Olun</h4>
+                    <p class="newsletter-info">Olaylarla ilgili en güncel bilgileri alın</p>
 
-                    <div class="alert alert-success hidden" id="newsletterSuccess">
-                        <strong>Success!</strong> You've been added to our email list.
-                    </div>
+                    <!-- <div class="alert alert-success hidden" id="newsletterSuccess">
+                        <strong>Başarılı!</strong> E-mail adresiniz eklendi.
+                    </div> -->
 
                     <div class="alert alert-danger hidden" id="newsletterError"></div>
 
 
-                    <p>Enter your e-mail Address:</p>
+                    <p>E-mail Adresinizi Giriniz:</p>
                     <form id="newsletterForm" action="../php/newsletter-subscribe.php" method="POST">
                         <div class="input-group">
-                            <input class="form-control" placeholder="Email Address" name="newsletterEmail" id="newsletterEmail" type="text">
+                            <input class="form-control" placeholder="E-mail Adres" name="newsletterEmail" id="newsletterEmail" type="text">
                             <span class="input-group-btn">
-											<button class="btn btn-primary" type="submit">Submit</button>
-										</span>
+                                <button class="btn btn-primary" type="submit">Gönder</button>
+                            </span>
                         </div>
                     </form>
                 </div>
@@ -95,7 +97,7 @@
     <div class="footer-copyright">
         <div class="container">
             <a href="index.html" class="logo">
-                <img alt="Porto Website Template" class="img-responsive" src="../img/demos/shop/logo-footer.png">
+                <img alt="Porto Website Template" class="img-responsive" src="../img/demos/shop/footerlogo.png">
             </a>
             <ul class="social-icons">
                 <li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
@@ -103,7 +105,7 @@
                 <li class="social-icons-linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
             </ul>
             <img alt="Payments" src="../img/demos/shop/payments.png" class="footer-payment">
-            <p class="copyright-text">© Copyright 2017. All Rights Reserved.</p>
+            <p class="copyright-text">© Copyright 2018. Tüm Hakları Saklıdır.</p>
         </div>
     </div>
 </footer>
@@ -124,6 +126,8 @@
 <script src="../vendor/owl.carousel/owl.carousel.min.js"></script>
 <script src="../vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 <script src="../vendor/vide/vide.min.js"></script>
+<script src="../ayarlar/main.js"></script>
+
 
 <!-- Theme Base, Components and Settings -->
 <script src="../js/theme.js"></script>

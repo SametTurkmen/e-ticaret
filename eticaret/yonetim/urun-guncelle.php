@@ -1,6 +1,10 @@
 <?php
 include 'ayarlar/baglanti.php';
 include 'ayarlar/function.php';
+
+$urun_id= g('urun_id');
+foreach (urungetir($urun_id) as $urun);
+
 include 'inc/header.php';
 ?>
 
@@ -36,8 +40,8 @@ include 'inc/header.php';
                     <h2 class="panel-title">Ürün Ekle</h2>
                 </header>
                 <div class="panel-body">
-                    <div id="urunEkleAlert"></div>
-                    <form id="urunEkleForm" class="form-horizontal form-bordered" enctype="multipart/form-data" method="post">
+                    <div id="urunGuncelleAlert"></div>
+                    <form id="urunGuncelleForm" class="form-horizontal form-bordered" enctype="multipart/form-data" method="post">
 
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="inputDefault">Ürün Resmi</label>
@@ -56,7 +60,8 @@ include 'inc/header.php';
                                     $v=$veri->fetchAll(PDO::FETCH_ASSOC);
                                     foreach ($v as $kat){
                                         ?>
-                                        <option value="<?php echo $kat['kategori_id']; ?>"><?php echo $kat['kategori_title']?> </option>
+                                        <option <? echo $kat['kategori_id'] == $urun['urun_kategori'] ? 'selected' : ''; ?>
+                                                value="<?php echo $kat['kategori_id']; ?>"><?php echo $kat['kategori_title']?> </option>
                                         <?php
                                     }
                                     ?>
@@ -66,48 +71,49 @@ include 'inc/header.php';
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="inputDefault">Başlık</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="urun_title">
+                                <input type="text" class="form-control" name="urun_title" value="<? echo $urun['urun_title']; ?>">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="inputDefault">Ürün Açıklama</label>
                             <div class="col-md-6">
-                                <textarea class="form-control" name="urun_desc" rows="5"></textarea>
+                                <textarea class="form-control" name="urun_desc" rows="5"><? echo $urun['urun_desc']; ?></textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="inputDefault">Ürün Meta Başlık</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="urun_meta_title">
+                                <input type="text" class="form-control" name="urun_meta_title" value="<? echo $urun['urun_meta_title']; ?>">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label" for="inputDefault">Ürün Meta Açıklama</label>
+                            <label class="col-md-3 control-label"  for="inputDefault">Ürün Meta Açıklama</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="urun_meta_desc">
+                                <input type="text" class="form-control" name="urun_meta_desc" value="<? echo $urun['urun_meta_desc']; ?>">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="inputDefault">Anahtar Meta Kelimeler</label>
                             <div class="col-md-6">
-                                <input id="tags-input" data-role="tagsinput" data-tag-class="label label-primary" type="text" class="form-control" name="urun_meta_keyw">
+                                <input id="tags-input" data-role="tagsinput" data-tag-class="label label-primary" type="text" class="form-control" name="urun_meta_keyw" value="<? echo $urun['urun_meta_keyw']; ?>">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="inputDefault">Ürün Fiyatı</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="urun_fiyat" onkeyup="javascript:this.value=ParaFormat(this.value); ">
+                                <input type="text" class="form-control" name="urun_fiyat" onkeyup="javascript:this.value=ParaFormat(this.value); " value="<? echo parayaz2($urun['urun_fiyat']); ?>">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="inputDefault">Ürün Sırası</label>
                             <div class="col-md-6">
-                                <input type="number" class="form-control" name="urun_sira">
+                                <input type="number" class="form-control" name="urun_sira"  value="<? echo $urun['urun_sira']; ?>">
                             </div>
                         </div>
+                        <input type="hidden" name="urun_id" value="<? echo $urun_id; ?>">
                         <div class="col-md-6 col-md-offset-3">
-                            <div id="urunEkleBtn" class="btn btn-primary btn-lg pull-right">Ekle</div>
+                            <div id="urunGuncelleBtn" class="btn btn-primary btn-lg pull-right">Güncelle</div>
                         </div>
 
                     </form>
