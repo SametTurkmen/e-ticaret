@@ -21,8 +21,7 @@ include 'inc/header.php';
                         <i class="fa fa-home"></i>
                     </a>
                 </li>
-                <li><span>Kategori Ekle</span></li>
-                <li><span>Sidebar Size SM</span></li>
+                <li><span>Ürün Güncelle</span></li>
             </ol>
 
             <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>
@@ -37,7 +36,7 @@ include 'inc/header.php';
                         <a href="#" class="panel-action panel-action-dismiss" data-panel-dismiss></a>
                     </div>
 
-                    <h2 class="panel-title">Ürün Ekle</h2>
+                    <h2 class="panel-title">Ürün Güncelle</h2>
                 </header>
                 <div class="panel-body">
                     <div id="urunGuncelleAlert"></div>
@@ -115,7 +114,6 @@ include 'inc/header.php';
                         <div class="col-md-6 col-md-offset-3">
                             <div id="urunGuncelleBtn" class="btn btn-primary btn-lg pull-right">Güncelle</div>
                         </div>
-
                     </form>
                 </div>
             </section>

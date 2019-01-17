@@ -37,7 +37,7 @@ $("#yGiris").on("click",function () {
     });
 });
 
-$(document).keypress(function(e){
+$(document).keypress(function(e){ // 'Enter' ile giriş işlemi için
     if (e.which == 13){
         $("#yGiris").click();
     }

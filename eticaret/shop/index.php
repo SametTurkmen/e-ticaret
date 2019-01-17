@@ -1,4 +1,6 @@
-<? require_once '../inc/header.php'; ?>
+<?
+require_once 'main.php';
+require_once '../inc/header.php'; ?>
 
 			<div role="main" class="main">
 <!--ÜST BANNER-->
@@ -22,23 +24,20 @@
 
 					<div class="col-md-9 col-md-push-3">
 						<div class="banners-container">
-							<div class="row">
-								<div class="col-sm-4">
-									<a href="#" class="banner">
-										<img src="../img/demos/shop/banners/shop6/banner1.jpg" alt="Banner">
-									</a>
-								</div>
-								<div class="col-sm-4">
-									<a href="#" class="banner">
-										<img src="../img/demos/shop/banners/shop6/banner2.jpg" alt="Banner">
-									</a>
-								</div>
-
-								<div class="col-sm-4">
-									<a href="#" class="banner">
-										<img src="../img/demos/shop/banners/shop6/banner3.jpg" alt="Banner">
-									</a>
-								</div>
+							<div class="row" >
+                                <?
+                                for ($i=1; $i<=3; $i++)
+                                {
+                                ?>
+								<div class="col-sm-4" >
+									<div  class="banner">
+                                        <?
+                                        $resim = glob('../resimler/*.jpg');
+                                        shuffle($resim);
+                                        echo '<img src="',$resim[0],'"/>';
+                                        ?>
+                                    </div>
+								</div> <? } ?>
 							</div>
 						</div>
 
@@ -48,243 +47,243 @@
 		                </h2>
 
 		                <div class="owl-carousel owl-theme manual featured-products-carousel">
-							<div class="product">
-								<figure class="product-image-area">
-									<a href="demo-shop-6-product-details.html" title="Product Name" class="product-image">
-										<img src="../img/demos/shop/products/product1.jpg" alt="Product Name">
-										<img src="../img/demos/shop/products/product1-2.jpg" alt="Product Name" class="product-hover-image">
-									</a>
+                                <?
+                                $veri= $db ->prepare("SELECT * FROM urunler ORDER BY urun_sira ASC LIMIT 0,10");
+                                $veri -> execute(array());
+                                $v= $veri->fetchAll(PDO::FETCH_ASSOC);
+                                foreach ($v as $urunler) {
+                                    ?>
 
-									<a href="#" class="product-quickview">
-										<i class="fa fa-share-square-o"></i>
-										<span>Quick View</span>
+							<div class="product">
+								<figure class="populerresim">
+									<a href="urun_detay.php?urun_id=<? echo $urunler['urun_id']; ?>" title="<? echo $urunler['urun_title']; ?>">
+										<img class="populerresim " src="../<? echo $urunler['urun_resim']?>" alt="<? echo $urunler['urun_title']; ?>">
 									</a>
-									<div class="product-label"><span class="discount">-10%</span></div>
-									<div class="product-label"><span class="new">New</span></div>
 								</figure>
 								<div class="product-details-area">
-									<h2 class="product-name"><a href="demo-shop-6-product-details.html" title="Product Name">Noa Sheer Blouse</a></h2>
+									<h2 class="product-name"><a href="urun_detay.php?urun_id=<? echo $urunler['urun_id']; ?>" title="Product Name"><? echo $urunler['urun_meta_desc'];?></a></h2>
 									<div class="product-ratings">
 										<div class="ratings-box">
-											<div class="rating" style="width:60%"></div>
+											<div class="rating" style="width:100%"></div>
 										</div>
 									</div>
 
 									<div class="product-price-box">
-										<span class="old-price">$99.00</span>
-										<span class="product-price">$89.00</span>
+<!--										<span class="old-price">$99.00</span>-->
+										<span class="product-price"><? echo parayaz($urunler['urun_fiyat']); ?></span>
 									</div>
 
 									<div class="product-actions">
-										<a href="#" class="addtowishlist" title="Add to Wishlist">
-											<i class="fa fa-heart"></i>
-										</a>
+<!--										<a href="#" class="addtowishlist" title="Add to Wishlist">-->
+<!--											<i class="fa fa-heart"></i>-->
+<!--										</a>-->
 										<a href="#" class="addtocart" title="Add to Cart">
 											<i class="fa fa-shopping-cart"></i>
-											<span>Add to Cart</span>
+											<span>Sepete Ekle</span>
 										</a>
-										<a href="#" class="comparelink" title="Add to Compare">
-											<i class="glyphicon glyphicon-signal"></i>
-										</a>
+<!--										<a href="#" class="comparelink" title="Add to Compare">-->
+<!--											<i class="glyphicon glyphicon-signal"></i>-->
+<!--										</a>-->
 									</div>
 								</div>
 							</div>
+                                   <? } ?>
 
-							<div class="product">
-								<figure class="product-image-area">
-									<a href="demo-shop-6-product-details.html" title="Product Name" class="product-image">
-										<img src="../img/demos/shop/products/product2.jpg" alt="Product Name">
-										<img src="../img/demos/shop/products/product2-2.jpg" alt="Product Name" class="product-hover-image">
-									</a>
+<!--							<div class="product">-->
+<!--								<figure class="product-image-area">-->
+<!--									<a href="urun_detay.php" title="Product Name" class="product-image">-->
+<!--										<img src="../img/demos/shop/products/product2.jpg" alt="Product Name">-->
+<!--										<img src="../img/demos/shop/products/product2-2.jpg" alt="Product Name" class="product-hover-image">-->
+<!--									</a>-->
+<!---->
+<!--									<a href="#" class="product-quickview">-->
+<!--										<i class="fa fa-share-square-o"></i>-->
+<!--										<span>Quick View</span>-->
+<!--									</a>-->
+<!--									<div class="product-label"><span class="discount">-25%</span></div>-->
+<!--								</figure>-->
+<!--								<div class="product-details-area">-->
+<!--									<h2 class="product-name"><a href="urun_detay.php" title="Product Name">Women Fashion Blouse</a></h2>-->
+<!--									<div class="product-ratings">-->
+<!--										<div class="ratings-box">-->
+<!--											<div class="rating" style="width:0%"></div>-->
+<!--										</div>-->
+<!--									</div>-->
+<!---->
+<!--									<div class="product-price-box">-->
+<!--										<span class="old-price">$120.00</span>-->
+<!--										<span class="product-price">$90.00</span>-->
+<!--									</div>-->
+<!---->
+<!--									<div class="product-actions">-->
+<!--										<a href="#" class="addtowishlist" title="Add to Wishlist">-->
+<!--											<i class="fa fa-heart"></i>-->
+<!--										</a>-->
+<!--										<a href="#" class="addtocart" title="Add to Cart">-->
+<!--											<i class="fa fa-shopping-cart"></i>-->
+<!--											<span>Add to Cart</span>-->
+<!--										</a>-->
+<!--										<a href="#" class="comparelink" title="Add to Compare">-->
+<!--											<i class="glyphicon glyphicon-signal"></i>-->
+<!--										</a>-->
+<!--									</div>-->
+<!--								</div>-->
+<!--							</div>-->
 
-									<a href="#" class="product-quickview">
-										<i class="fa fa-share-square-o"></i>
-										<span>Quick View</span>
-									</a>
-									<div class="product-label"><span class="discount">-25%</span></div>
-								</figure>
-								<div class="product-details-area">
-									<h2 class="product-name"><a href="demo-shop-6-product-details.html" title="Product Name">Women Fashion Blouse</a></h2>
-									<div class="product-ratings">
-										<div class="ratings-box">
-											<div class="rating" style="width:0%"></div>
-										</div>
-									</div>
+<!--							<div class="product">-->
+<!--								<figure class="product-image-area">-->
+<!--									<a href="urun_detay.php" title="Product Name" class="product-image">-->
+<!--										<img src="../img/demos/shop/products/product3.jpg" alt="Product Name">-->
+<!--									</a>-->
+<!---->
+<!--									<a href="#" class="product-quickview">-->
+<!--										<i class="fa fa-share-square-o"></i>-->
+<!--										<span>Quick View</span>-->
+<!--									</a>-->
+<!--								</figure>-->
+<!--								<div class="product-details-area">-->
+<!--									<h2 class="product-name"><a href="urun_detay.php" title="Product Name">Fashion Dress</a></h2>-->
+<!--									<div class="product-ratings">-->
+<!--										<div class="ratings-box">-->
+<!--											<div class="rating" style="width:60%"></div>-->
+<!--										</div>-->
+<!--									</div>-->
+<!---->
+<!--									<div class="product-price-box">-->
+<!--										<span class="product-price">$70.00</span>-->
+<!--									</div>-->
+<!---->
+<!--									<div class="product-actions">-->
+<!--										<a href="#" class="addtowishlist" title="Add to Wishlist">-->
+<!--											<i class="fa fa-heart"></i>-->
+<!--										</a>-->
+<!--										<a href="#" class="addtocart" title="Add to Cart">-->
+<!--											<i class="fa fa-shopping-cart"></i>-->
+<!--											<span>Add to Cart</span>-->
+<!--										</a>-->
+<!--										<a href="#" class="comparelink" title="Add to Compare">-->
+<!--											<i class="glyphicon glyphicon-signal"></i>-->
+<!--										</a>-->
+<!--									</div>-->
+<!--								</div>-->
+<!--							</div>-->
 
-									<div class="product-price-box">
-										<span class="old-price">$120.00</span>
-										<span class="product-price">$90.00</span>
-									</div>
+<!--							<div class="product">-->
+<!--								<figure class="product-image-area">-->
+<!--									<a href="urun_detay.php" title="Product Name" class="product-image">-->
+<!--										<img src="../img/demos/shop/products/product4.jpg" alt="Product Name">-->
+<!--									</a>-->
+<!---->
+<!--									<a href="#" class="product-quickview">-->
+<!--										<i class="fa fa-share-square-o"></i>-->
+<!--										<span>Quick View</span>-->
+<!--									</a>-->
+<!--									<div class="product-label"><span class="discount">-20%</span></div>-->
+<!--								</figure>-->
+<!--								<div class="product-details-area">-->
+<!--									<h2 class="product-name"><a href="urun_detay.php" title="Product Name">Fashion Sweater</a></h2>-->
+<!--									<div class="product-ratings">-->
+<!--										<div class="ratings-box">-->
+<!--											<div class="rating" style="width:80%"></div>-->
+<!--										</div>-->
+<!--									</div>-->
+<!---->
+<!--									<div class="product-price-box">-->
+<!--										<span class="old-price">$100.00</span>-->
+<!--										<span class="product-price">$90.00</span>-->
+<!--									</div>-->
+<!---->
+<!--									<div class="product-actions">-->
+<!--										<a href="#" class="addtowishlist" title="Add to Wishlist">-->
+<!--											<i class="fa fa-heart"></i>-->
+<!--										</a>-->
+<!--										<a href="#" class="addtocart" title="Add to Cart">-->
+<!--											<i class="fa fa-shopping-cart"></i>-->
+<!--											<span>Add to Cart</span>-->
+<!--										</a>-->
+<!--										<a href="#" class="comparelink" title="Add to Compare">-->
+<!--											<i class="glyphicon glyphicon-signal"></i>-->
+<!--										</a>-->
+<!--									</div>-->
+<!--								</div>-->
+<!--							</div>-->
 
-									<div class="product-actions">
-										<a href="#" class="addtowishlist" title="Add to Wishlist">
-											<i class="fa fa-heart"></i>
-										</a>
-										<a href="#" class="addtocart" title="Add to Cart">
-											<i class="fa fa-shopping-cart"></i>
-											<span>Add to Cart</span>
-										</a>
-										<a href="#" class="comparelink" title="Add to Compare">
-											<i class="glyphicon glyphicon-signal"></i>
-										</a>
-									</div>
-								</div>
-							</div>
+<!--							<div class="product">-->
+<!--								<figure class="product-image-area">-->
+<!--									<a href="urun_detay.php" title="Product Name" class="product-image">-->
+<!--										<img src="../img/demos/shop/products/product11.jpg" alt="Product Name">-->
+<!--									</a>-->
+<!---->
+<!--									<a href="#" class="product-quickview">-->
+<!--										<i class="fa fa-share-square-o"></i>-->
+<!--										<span>Quick View</span>-->
+<!--									</a>-->
+<!--								</figure>-->
+<!--								<div class="product-details-area">-->
+<!--									<h2 class="product-name"><a href="urun_detay.php" title="Product Name">Woman Shee Blouse</a></h2>-->
+<!--									<div class="product-ratings">-->
+<!--										<div class="ratings-box">-->
+<!--											<div class="rating" style="width:0%"></div>-->
+<!--										</div>-->
+<!--									</div>-->
+<!---->
+<!--									<div class="product-price-box">-->
+<!--										<span class="product-price">$70.00</span>-->
+<!--									</div>-->
+<!---->
+<!--									<div class="product-actions">-->
+<!--										<a href="#" class="addtowishlist" title="Add to Wishlist">-->
+<!--											<i class="fa fa-heart"></i>-->
+<!--										</a>-->
+<!--										<a href="#" class="addtocart" title="Add to Cart">-->
+<!--											<i class="fa fa-shopping-cart"></i>-->
+<!--											<span>Add to Cart</span>-->
+<!--										</a>-->
+<!--										<a href="#" class="comparelink" title="Add to Compare">-->
+<!--											<i class="glyphicon glyphicon-signal"></i>-->
+<!--										</a>-->
+<!--									</div>-->
+<!--								</div>-->
+<!--							</div>-->
 
-							<div class="product">
-								<figure class="product-image-area">
-									<a href="demo-shop-6-product-details.html" title="Product Name" class="product-image">
-										<img src="../img/demos/shop/products/product3.jpg" alt="Product Name">
-									</a>
-
-									<a href="#" class="product-quickview">
-										<i class="fa fa-share-square-o"></i>
-										<span>Quick View</span>
-									</a>
-								</figure>
-								<div class="product-details-area">
-									<h2 class="product-name"><a href="demo-shop-6-product-details.html" title="Product Name">Fashion Dress</a></h2>
-									<div class="product-ratings">
-										<div class="ratings-box">
-											<div class="rating" style="width:60%"></div>
-										</div>
-									</div>
-
-									<div class="product-price-box">
-										<span class="product-price">$70.00</span>
-									</div>
-
-									<div class="product-actions">
-										<a href="#" class="addtowishlist" title="Add to Wishlist">
-											<i class="fa fa-heart"></i>
-										</a>
-										<a href="#" class="addtocart" title="Add to Cart">
-											<i class="fa fa-shopping-cart"></i>
-											<span>Add to Cart</span>
-										</a>
-										<a href="#" class="comparelink" title="Add to Compare">
-											<i class="glyphicon glyphicon-signal"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-
-							<div class="product">
-								<figure class="product-image-area">
-									<a href="demo-shop-6-product-details.html" title="Product Name" class="product-image">
-										<img src="../img/demos/shop/products/product4.jpg" alt="Product Name">
-									</a>
-
-									<a href="#" class="product-quickview">
-										<i class="fa fa-share-square-o"></i>
-										<span>Quick View</span>
-									</a>
-									<div class="product-label"><span class="discount">-20%</span></div>
-								</figure>
-								<div class="product-details-area">
-									<h2 class="product-name"><a href="demo-shop-6-product-details.html" title="Product Name">Fashion Sweater</a></h2>
-									<div class="product-ratings">
-										<div class="ratings-box">
-											<div class="rating" style="width:80%"></div>
-										</div>
-									</div>
-
-									<div class="product-price-box">
-										<span class="old-price">$100.00</span>
-										<span class="product-price">$90.00</span>
-									</div>
-
-									<div class="product-actions">
-										<a href="#" class="addtowishlist" title="Add to Wishlist">
-											<i class="fa fa-heart"></i>
-										</a>
-										<a href="#" class="addtocart" title="Add to Cart">
-											<i class="fa fa-shopping-cart"></i>
-											<span>Add to Cart</span>
-										</a>
-										<a href="#" class="comparelink" title="Add to Compare">
-											<i class="glyphicon glyphicon-signal"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-
-							<div class="product">
-								<figure class="product-image-area">
-									<a href="demo-shop-6-product-details.html" title="Product Name" class="product-image">
-										<img src="../img/demos/shop/products/product11.jpg" alt="Product Name">
-									</a>
-
-									<a href="#" class="product-quickview">
-										<i class="fa fa-share-square-o"></i>
-										<span>Quick View</span>
-									</a>
-								</figure>
-								<div class="product-details-area">
-									<h2 class="product-name"><a href="demo-shop-6-product-details.html" title="Product Name">Woman Shee Blouse</a></h2>
-									<div class="product-ratings">
-										<div class="ratings-box">
-											<div class="rating" style="width:0%"></div>
-										</div>
-									</div>
-
-									<div class="product-price-box">
-										<span class="product-price">$70.00</span>
-									</div>
-
-									<div class="product-actions">
-										<a href="#" class="addtowishlist" title="Add to Wishlist">
-											<i class="fa fa-heart"></i>
-										</a>
-										<a href="#" class="addtocart" title="Add to Cart">
-											<i class="fa fa-shopping-cart"></i>
-											<span>Add to Cart</span>
-										</a>
-										<a href="#" class="comparelink" title="Add to Compare">
-											<i class="glyphicon glyphicon-signal"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-
-							<div class="product">
-								<figure class="product-image-area">
-									<a href="demo-shop-6-product-details.html" title="Product Name" class="product-image">
-										<img src="../img/demos/shop/products/product9.jpg" alt="Product Name">
-									</a>
-
-									<a href="#" class="product-quickview">
-										<i class="fa fa-share-square-o"></i>
-										<span>Quick View</span>
-									</a>
-									<div class="product-label"><span class="new">New</span></div>
-								</figure>
-								<div class="product-details-area">
-									<h2 class="product-name"><a href="demo-shop-6-product-details.html" title="Product Name">Pink Woman Shirt</a></h2>
-									<div class="product-ratings">
-										<div class="ratings-box">
-											<div class="rating" style="width:80%"></div>
-										</div>
-									</div>
-
-									<div class="product-price-box">
-										<span class="product-price">$80.00</span>
-									</div>
-
-									<div class="product-actions">
-										<a href="#" class="addtowishlist" title="Add to Wishlist">
-											<i class="fa fa-heart"></i>
-										</a>
-										<a href="#" class="addtocart" title="Add to Cart">
-											<i class="fa fa-shopping-cart"></i>
-											<span>Add to Cart</span>
-										</a>
-										<a href="#" class="comparelink" title="Add to Compare">
-											<i class="glyphicon glyphicon-signal"></i>
-										</a>
-									</div>
-								</div>
-							</div>
+<!--							<div class="product">-->
+<!--								<figure class="product-image-area">-->
+<!--									<a href="urun_detay.php" title="Product Name" class="product-image">-->
+<!--										<img src="../img/demos/shop/products/product9.jpg" alt="Product Name">-->
+<!--									</a>-->
+<!---->
+<!--									<a href="#" class="product-quickview">-->
+<!--										<i class="fa fa-share-square-o"></i>-->
+<!--										<span>Quick View</span>-->
+<!--									</a>-->
+<!--									<div class="product-label"><span class="new">New</span></div>-->
+<!--								</figure>-->
+<!--								<div class="product-details-area">-->
+<!--									<h2 class="product-name"><a href="urun_detay.php" title="Product Name">Pink Woman Shirt</a></h2>-->
+<!--									<div class="product-ratings">-->
+<!--										<div class="ratings-box">-->
+<!--											<div class="rating" style="width:80%"></div>-->
+<!--										</div>-->
+<!--									</div>-->
+<!---->
+<!--									<div class="product-price-box">-->
+<!--										<span class="product-price">$80.00</span>-->
+<!--									</div>-->
+<!---->
+<!--									<div class="product-actions">-->
+<!--										<a href="#" class="addtowishlist" title="Add to Wishlist">-->
+<!--											<i class="fa fa-heart"></i>-->
+<!--										</a>-->
+<!--										<a href="#" class="addtocart" title="Add to Cart">-->
+<!--											<i class="fa fa-shopping-cart"></i>-->
+<!--											<span>Add to Cart</span>-->
+<!--										</a>-->
+<!--										<a href="#" class="comparelink" title="Add to Compare">-->
+<!--											<i class="glyphicon glyphicon-signal"></i>-->
+<!--										</a>-->
+<!--									</div>-->
+<!--								</div>-->
+<!--							</div>-->
 						</div>
 
 						<hr class="mt-xlg mb-xl">
@@ -295,12 +294,12 @@
 									<h3 class="h4 text-uppercase mb-sm"><strong>NEW</strong></h3>
 									<div class="product product-sm">
 										<figure class="product-image-area">
-											<a href="demo-shop-6-product-details.html" title="Product Name" class="product-image">
+											<a href="urun_detay.php" title="Product Name" class="product-image">
 												<img src="../img/demos/shop/products/shop9/product11.jpg" alt="Product Name">
 											</a>
 										</figure>
 										<div class="product-details-area">
-											<h2 class="product-name"><a href="demo-shop-6-product-details.html" title="Product Name">Diamond Ring - S</a></h2>
+											<h2 class="product-name"><a href="urun_detay.php" title="Product Name">Diamond Ring - S</a></h2>
 											<div class="product-ratings">
 												<div class="ratings-box">
 													<div class="rating" style="width:0%"></div>
@@ -315,12 +314,12 @@
 
 									<div class="product product-sm">
 										<figure class="product-image-area">
-											<a href="demo-shop-6-product-details.html" title="Product Name" class="product-image">
+											<a href="urun_detay.php" title="Product Name" class="product-image">
 												<img src="../img/demos/shop/products/shop9/product12.jpg" alt="Product Name">
 											</a>
 										</figure>
 										<div class="product-details-area">
-											<h2 class="product-name"><a href="demo-shop-6-product-details.html" title="Product Name">Diamond Ring - XL</a></h2>
+											<h2 class="product-name"><a href="urun_detay.php" title="Product Name">Diamond Ring - XL</a></h2>
 											<div class="product-ratings">
 												<div class="ratings-box">
 													<div class="rating" style="width:80%"></div>
@@ -335,12 +334,12 @@
 
 									<div class="product product-sm">
 										<figure class="product-image-area">
-											<a href="demo-shop-6-product-details.html" title="Product Name" class="product-image">
+											<a href="urun_detay.php" title="Product Name" class="product-image">
 												<img src="../img/demos/shop/products/shop9/product13.jpg" alt="Product Name">
 											</a>
 										</figure>
 										<div class="product-details-area">
-											<h2 class="product-name"><a href="demo-shop-6-product-details.html" title="Product Name">Diamond Ring - 2XL</a></h2>
+											<h2 class="product-name"><a href="urun_detay.php" title="Product Name">Diamond Ring - 2XL</a></h2>
 											<div class="product-ratings">
 												<div class="ratings-box">
 													<div class="rating" style="width:0%"></div>
@@ -360,12 +359,12 @@
 									<h3 class="h4 text-uppercase mb-sm"><strong>HOT</strong></h3>
 									<div class="product product-sm">
 										<figure class="product-image-area">
-											<a href="demo-shop-6-product-details.html" title="Product Name" class="product-image">
+											<a href="urun_detay.php" title="Product Name" class="product-image">
 												<img src="../img/demos/shop/products/shop9/product10.jpg" alt="Product Name">
 											</a>
 										</figure>
 										<div class="product-details-area">
-											<h2 class="product-name"><a href="demo-shop-6-product-details.html" title="Product Name">Men Sports Watch-Black</a></h2>
+											<h2 class="product-name"><a href="urun_detay.php" title="Product Name">Men Sports Watch-Black</a></h2>
 											<div class="product-ratings">
 												<div class="ratings-box">
 													<div class="rating" style="width:0%"></div>
@@ -380,12 +379,12 @@
 
 									<div class="product product-sm">
 										<figure class="product-image-area">
-											<a href="demo-shop-6-product-details.html" title="Product Name" class="product-image">
+											<a href="urun_detay.php" title="Product Name" class="product-image">
 												<img src="../img/demos/shop/products/shop9/product8.jpg" alt="Product Name">
 											</a>
 										</figure>
 										<div class="product-details-area">
-											<h2 class="product-name"><a href="demo-shop-6-product-details.html" title="Product Name">Men Sports Watch</a></h2>
+											<h2 class="product-name"><a href="urun_detay.php" title="Product Name">Men Sports Watch</a></h2>
 											<div class="product-ratings">
 												<div class="ratings-box">
 													<div class="rating" style="width:80%"></div>
@@ -400,12 +399,12 @@
 
 									<div class="product product-sm">
 										<figure class="product-image-area">
-											<a href="demo-shop-6-product-details.html" title="Product Name" class="product-image">
+											<a href="urun_detay.php" title="Product Name" class="product-image">
 												<img src="../img/demos/shop/products/shop9/product9.jpg" alt="Product Name">
 											</a>
 										</figure>
 										<div class="product-details-area">
-											<h2 class="product-name"><a href="demo-shop-6-product-details.html" title="Product Name">Men Sports Watch-XL</a></h2>
+											<h2 class="product-name"><a href="urun_detay.php" title="Product Name">Men Sports Watch-XL</a></h2>
 											<div class="product-ratings">
 												<div class="ratings-box">
 													<div class="rating" style="width:0%"></div>
@@ -425,12 +424,12 @@
 									<h3 class="h4 text-uppercase mb-sm"><strong>SALE</strong></h3>
 									<div class="product product-sm">
 										<figure class="product-image-area">
-											<a href="demo-shop-6-product-details.html" title="Product Name" class="product-image">
+											<a href="urun_detay.php" title="Product Name" class="product-image">
 												<img src="../img/demos/shop/products/shop9/product12.jpg" alt="Product Name">
 											</a>
 										</figure>
 										<div class="product-details-area">
-											<h2 class="product-name"><a href="demo-shop-6-product-details.html" title="Product Name">Diamond Ring - S</a></h2>
+											<h2 class="product-name"><a href="urun_detay.php" title="Product Name">Diamond Ring - S</a></h2>
 											<div class="product-ratings">
 												<div class="ratings-box">
 													<div class="rating" style="width:0%"></div>
@@ -445,12 +444,12 @@
 
 									<div class="product product-sm">
 										<figure class="product-image-area">
-											<a href="demo-shop-6-product-details.html" title="Product Name" class="product-image">
+											<a href="urun_detay.php" title="Product Name" class="product-image">
 												<img src="../img/demos/shop/products/shop9/product13.jpg" alt="Product Name">
 											</a>
 										</figure>
 										<div class="product-details-area">
-											<h2 class="product-name"><a href="demo-shop-6-product-details.html" title="Product Name">Diamond Ring - XL</a></h2>
+											<h2 class="product-name"><a href="urun_detay.php" title="Product Name">Diamond Ring - XL</a></h2>
 											<div class="product-ratings">
 												<div class="ratings-box">
 													<div class="rating" style="width:80%"></div>
@@ -465,12 +464,12 @@
 
 									<div class="product product-sm">
 										<figure class="product-image-area">
-											<a href="demo-shop-6-product-details.html" title="Product Name" class="product-image">
+											<a href="urun_detay.php" title="Product Name" class="product-image">
 												<img src="../img/demos/shop/products/shop9/product11.jpg" alt="Product Name">
 											</a>
 										</figure>
 										<div class="product-details-area">
-											<h2 class="product-name"><a href="demo-shop-6-product-details.html" title="Product Name">Diamond Ring - 2XL</a></h2>
+											<h2 class="product-name"><a href="urun_detay.php" title="Product Name">Diamond Ring - 2XL</a></h2>
 											<div class="product-ratings">
 												<div class="ratings-box">
 													<div class="rating" style="width:0%"></div>

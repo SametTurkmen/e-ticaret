@@ -56,6 +56,13 @@
                         </ul>
                     </li>
 
+                    <li>
+                        <a href="kisiler.php">
+                            <i class="fa fa-address-card" aria-hidden="true"></i>
+                            <span>Üye İşlemleri</span>
+                        </a>
+                    </li>
+
                 </ul>
             </nav>
 

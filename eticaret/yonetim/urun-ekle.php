@@ -8,7 +8,7 @@ include 'inc/header.php';
     <!-- start: page -->
 
     <header class="page-header">
-        <h2>Kategoriler</h2>
+        <h2>Ürünler</h2>
 
         <div class="right-wrapper pull-right">
             <ol class="breadcrumbs">
@@ -17,8 +17,7 @@ include 'inc/header.php';
                         <i class="fa fa-home"></i>
                     </a>
                 </li>
-                <li><span>Kategori Ekle</span></li>
-                <li><span>Sidebar Size SM</span></li>
+                <li><span>Ürün Ekle</span></li>
             </ol>
 
             <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>

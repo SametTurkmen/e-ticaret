@@ -1,3 +1,6 @@
+<?
+require_once '../shop/main.php';?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -61,7 +64,30 @@
 <div class="body">
     <header id="header" data-plugin-options="{'stickyEnabled': false, 'stickyEnableOnBoxed': false, 'stickyEnableOnMobile': false, 'stickyStartAt': 147, 'stickySetTop': '-147px', 'stickyChangeLogo': false}">
         <div class="header-body">
-            <? require_once '../moduller/header-top.php';?>
+
+            <div class="header-top">
+                <div class="container">
+
+                    <div class="top-menu-area">
+                        <a href="#">Links <i class="fa fa-caret-down"></i></a>
+                        <ul class="top-menu">
+                            <li><a href="hesabim.php">HESABIM</a></li>
+                            <?
+                            if(isLogin){
+                                echo '<li><a href="logout.php">ÇIKIŞ</a></li>';
+                            }
+                            else
+                            {
+                                echo '<li><a href="login.php">GİRİŞ</a></li>';
+                            }
+                            ?>
+
+                        </ul>
+                    </div>
+                    <p class="welcome-msg">ALIŞVERİŞ DÜNYASINA HOŞGELDİNİZ!</p>
+                </div>
+            </div>
+s
             <div class="header-container container">
                 <div class="header-row">
                     <div class="header-column">
@@ -148,34 +174,13 @@
                                 <a href="#" class="search-toggle"><i class="fa fa-search"></i></a>
                                 <form action="#" method="get">
                                     <div class="header-search-wrapper">
-                                        <input type="text" class="form-control" name="q" id="q" placeholder="Search..." required>
-                                        <select id="cat" name="cat">
-                                            <option value="">All Categories</option>
-                                            <option value="4">Fashion</option>
-                                            <option value="12">- Women</option>
-                                            <option value="13">- Men</option>
-                                            <option value="66">- Jewellery</option>
-                                            <option value="67">- Kids Fashion</option>
-                                            <option value="5">Electronics</option>
-                                            <option value="21">- Smart TVs</option>
-                                            <option value="22">- Cameras</option>
-                                            <option value="63">- Games</option>
-                                            <option value="7">Home &amp; Garden</option>
-                                            <option value="11">Motors</option>
-                                            <option value="31">- Cars and Trucks</option>
-                                            <option value="32">- Motorcycles &amp; Powersports</option>
-                                            <option value="33">- Parts &amp; Accessories</option>
-                                            <option value="34">- Boats</option>
-                                            <option value="57">- Auto Tools &amp; Supplies</option>
-                                        </select>
+                                        <input type="text" class="form-control" name="q" id="q" placeholder="Arama..." required>
                                         <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
                                     </div>
                                 </form>
                             </div>
 
-                            <a href="#" class="mmenu-toggle-btn" title="Toggle menu">
-                                <i class="fa fa-bars"></i>
-                            </a>
+
                         </div>
                     </div>
                 </div>

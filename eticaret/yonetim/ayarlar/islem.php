@@ -1,5 +1,6 @@
 <?php
 require_once 'baglanti.php';
+require_once 'class.upload.php';
 require_once 'function.php';
 
 //KATEGORİ iŞLEMLERİ
@@ -276,5 +277,17 @@ if (g('islem') == 'urunGuncelle'){
                 }
             }
         }
+    }
+}
+
+// ÜYE İŞLEMLERİ
+
+if (g('kisiSil')=='ok'){
+    $sil = $db-> prepare("DELETE FROM kisiler WHERE kisi_id=?");
+    $silme= $sil -> execute(array(g('kisi_id')));
+    if ($silme){
+        git("../kisiler.php?silme=ok");
+    }else{
+        git("../kisiler.php?silme=no");
     }
 }

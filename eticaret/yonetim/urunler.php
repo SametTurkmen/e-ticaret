@@ -62,7 +62,7 @@ require_once 'inc/header.php';
                             <td><? echo parayaz($urunler['urun_fiyat']); ?></td>
                             <td>
                                 <!-- Sil Butonu -->
-                                <a class="mb-xs mt-xs mr-xs modal-basic btn btn-danger" href="#modalFullColorPrimary<? echo $urunler['urun_id']; ?>">Sil</a>
+                                <a class="mb-xs mt-xs mr-xs modal-basic btn btn-danger" href="#modalFullColorPrimary<? echo $urunler['urun_id']; ?>"><i class="fa fa-trash"></i>&nbsp; Sil</a>
 
                                 <div id="modalFullColorPrimary<? echo $urunler['urun_id']; ?>"
                                      class="modal-block modal-full-color modal-block-primary mfp-hide">
@@ -95,11 +95,11 @@ require_once 'inc/header.php';
                                 <!-- Sil Butonu -->
 
                                 <!-- Güncelle Butonu -->
-                                <a class="mb-xs mt-xs mr-xs btn btn-warning" href="urun-guncelle.php?urun_id=<? echo $urunler['urun_id']; ?>">Düzenle</a>
+                                <a class="mb-xs mt-xs mr-xs btn btn-warning" href="urun-guncelle.php?urun_id=<? echo $urunler['urun_id']; ?>"><i class="fa fa-edit"></i>&nbsp; Düzenle</a>
                                 <!-- Güncelle Butonu -->
 
                                 <!-- Galeri Butonu -->
-                                <a class="mb-xs mt-xs mr-xs btn btn-success" href="urun-galeri.php?urun_id=<? echo $urunler['urun_id']; ?>">Galeri</a>
+                              <!--  <a class="mb-xs mt-xs mr-xs btn btn-success" href="urun-galeri.php?urun_id=<? echo $urunler['urun_id']; ?>">Galeri</a> -->
                                 <!-- Galeri Butonu -->
 
                             </td>

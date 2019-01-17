@@ -1,1 +1,14 @@
-/* Add here all your CSS customizations */
+.populerresim{
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+}
+
+/* Ürün Detay */
+
+.product-img-box .product-img-box-wrapper .product-img-wrapper{
+    height: 320px;
+}
+.product-img-box .product-img-box-wrapper .product-img-wrapper #product-zoom{
+    margin-top: 30px;
+}

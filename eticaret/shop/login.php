@@ -1,4 +1,15 @@
-<? require_once '../inc/header.php'; ?>
+<?
+require_once 'main.php';
+
+if(isLogin)
+{
+    header('Location:hesabim.php');
+}
+
+
+require_once '../inc/header.php';
+?>
+
 
 			<div class="mobile-nav">
 				<div class="mobile-nav-wrapper">
@@ -138,7 +149,7 @@
 									<a href="#">Product Details</a>
 									<ul>
 										<li>
-											<a href="demo-shop-6-product-details.html">Product Details 1</a>
+											<a href="urun_detay.php">Product Details 1</a>
 										</li>
 										<li>
 											<a href="demo-shop-6-product-details2.html">Product Details 2</a>
@@ -159,7 +170,7 @@
 								</li>
 								<li>
 									<span class="mmenu-toggle"></span>
-									<a href="#">Loign &amp; Register</a>
+									<a href="#">Login &amp; Register</a>
 									<ul>
 										<li>
 											<a href="login.php">Login</a>
@@ -214,7 +225,7 @@
 
 					<div class="featured-box featured-box-primary featured-box-flat featured-box-text-left mt-md">
 						<div class="box-content">
-							<form action="#">
+							<form id="loginForm" method="post">
 								<div class="row">
 									<div class="col-sm-6">
 										<div class="form-content">
@@ -227,17 +238,18 @@
 										</div>
 									</div>
 									<div class="col-sm-6">
+                                        <div id="loginAlert"> </div>
 										<div class="form-content">
 											<h3 class="heading-text-color font-weight-normal">Kayıtlı Müşteriler</h3>
 											<p>Bir bir hesabınız varsa, lütfen giriş yapın.</p>
 											<div class="form-group">
-												<label class="font-weight-normal">E-posta Adresi <span class="required">*</span></label>
-												<input type="email" class="form-control" required>
+												<label class="font-weight-normal">Kullanıcı Adı <span class="required">*</span></label>
+												<input name="kisi_kadi" type="text" class="form-control" required>
 											</div>
 
 											<div class="form-group">
 												<label class="font-weight-normal">Şifre <span class="required">*</span></label>
-												<input type="password" class="form-control" required>
+												<input name="kisi_sifre" type="password" class="form-control" required>
 											</div>
 
 											<p class="required">* Zorunlu Alanlar</p>
@@ -246,7 +258,7 @@
 										<div class="form-action clearfix">
 											<!-- <a href="#" class="pull-left">Forgot Your Password?</a> -->
 
-											<input type="submit" class="btn btn-primary" value="Submit">
+                                            <div id="login" class="btn btn-primary">Gönder</div>
 										</div>
 									</div>
 								</div>

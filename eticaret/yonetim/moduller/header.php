@@ -195,9 +195,9 @@
             <div class="dropdown-menu">
                 <ul class="list-unstyled">
                     <li class="divider"></li>
-                    <li>
+                   <!-- <li>
                         <a role="menuitem" tabindex="-1" href="pages-user-profile.html"><i class="fa fa-user"></i> My Profile</a>
-                    </li>
+                    </li> -->
                     <li>
                         <a role="menuitem" tabindex="-1" href="ayarlar/islem.php?islem=cikis"><i class="fa fa-power-off"></i> Çıkış</a>
                     </li>

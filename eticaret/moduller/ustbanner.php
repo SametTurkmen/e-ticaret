@@ -9,7 +9,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <i class="fa fa-dollar bar-icon"></i>
+                <i class="fa fa-turkish-lira bar-icon"></i>
                 <div class="bar-textarea">
                     <h3>PARA İADE GARANTİSİ</h3>
                     <p>% 100 para iade garantisi.</p>

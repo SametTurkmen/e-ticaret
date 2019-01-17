@@ -52,12 +52,12 @@
 <section class="body">
 
     <!-- start: header -->
-    <?php include 'moduller/header.php'; ?>
+    <?php require_once 'moduller/header.php'; ?>
     <!-- end: header -->
 
     <div class="inner-wrapper">
         <!-- start: sidebar -->
-        <?php include 'moduller/sidebar.php'; ?>
+        <?php require_once 'moduller/sidebar.php'; ?>
         <!-- end: sidebar -->
 
         <section role="main" class="content-body">

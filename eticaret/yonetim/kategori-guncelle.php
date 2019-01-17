@@ -92,7 +92,7 @@ include 'inc/header.php';
                                 </select>
                             </div>
                         </div>
-                        <input type="hidden" value="<? echo $kategori_id?>" name="kategori_id">
+                        <input type="hidden" value="<? echo $kategori_id; ?>" name="kategori_id">
 
                         <div class="col-md-6 col-md-offset-3">
                             <div id="kategoriGuncelleBtn" class="btn btn-primary btn-lg pull-right">Güncelle</div>

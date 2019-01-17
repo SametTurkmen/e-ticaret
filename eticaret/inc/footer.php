@@ -19,7 +19,7 @@
                     </li>
                     <li>
                         <i class="fa fa-caret-right text-color-primary"></i>
-                        <a href="myaccount.php">Hesabım</a>
+                        <a href="hesabim.php">Hesabım</a>
                     </li>
                     <li>
                         <i class="fa fa-caret-right text-color-primary"></i>
