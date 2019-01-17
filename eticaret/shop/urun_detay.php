@@ -41,7 +41,6 @@ $urun = urungetir($urun_id);
 										</h1>
 
 
-
                                         <div class="product-short-desc">
 											<p><? echo $urun['urun_meta_desc']?></p>
 										</div>
